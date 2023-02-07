@@ -18,7 +18,6 @@ public class Exam7_1 {
 		
 		return dap;
 		
-		
 	}
 
 	public static void main(String[] args) {

@@ -1,40 +1,26 @@
 package section2.day6;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Exam12 {
 	
 	public int solution(int n, int m, int[][]arr) {
-		int dap = 0,cnt = 0;//cnt는 회전횟수
-		int s = n;//학생수
-		int stay;
-		List<Integer> list = new ArrayList<>();
+		int dap = 0;
 		
-		for(int k = 1; k<=n;k++) {
-		for(int i = 0; i< n; i++) {
-			for(int j = 0; j<m;j++) {
-				
-				cnt = 0;
-				
-					
-				if(arr[i][j] == k) {
-					cnt++;
-					for(int z = cnt;z<n;z++) {
-					list.add(arr[i][cnt]);
+		for(int i = 1; i<=n;i++) {
+			for(int j = 1; j <= n ; j++) {
+				int cnt = 0;
+				for(int t = 0; t < m ; t++) {
+					int p1 = 0, p2 = 0;
+					for(int s= 0; s<n;s++) {
+						if(arr[t][s]==i) p1 = s;
+						if(arr[t][s]==j) p2 = s;
 					}
+					if(p1<p2)cnt++;
 				}
-				}
+				if(cnt==m) dap++;
 			}
-		
 		}
-		
-		
-		
-		
-		
-		
 		return dap;
 	}
 
@@ -46,11 +32,11 @@ public class Exam12 {
 		int n = scan.nextInt();
 		int m = scan.nextInt();
 		
-		int [][] arr = new int [n][m];
+		int [][] arr = new int [m][n];
 		
-		for(int i = 0; i< n; i++) {
-			for(int j = 0; j<m;j++) {
-				arr[n][m] = scan.nextInt();
+		for(int i = 0; i< m; i++) {
+			for(int j = 0; j<n;j++) {
+				arr[i][j] = scan.nextInt();
 			}
 		}
 		
