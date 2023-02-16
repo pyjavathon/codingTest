@@ -19,9 +19,9 @@ public class Exam1 {
 								 .mapToObj(c-> (char)c); 
 		
 		Map<Character, Integer> map =  cList.collect(Collectors.toMap(Function.identity(), value -> 1, Integer::sum));
-		System.out.println(map.toString());
-		//Collection<Integer> list = map.values();
+
 		Integer max = Collections.max(map.values());
+		
 		for(Character key : map.keySet()) {
 			
 			if(map.get(key) == max) {
