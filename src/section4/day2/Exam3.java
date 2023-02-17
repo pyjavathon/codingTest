@@ -22,15 +22,15 @@ public class Exam3 {
 			lt++;
 		}
 		lt=0;
-		while(round<per) {
+		while(round<=per) {
 		
 		dap[round] = (int)list.stream().distinct().count();	
 		if(rt==7) break;
 		list.add(arr[rt]);
 		rt++;
 		list.remove(lt);
-		lt++;
 		round++;
+		System.out.println(list.toString());
 			}
 		
 		return dap;
