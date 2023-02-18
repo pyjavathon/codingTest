@@ -30,7 +30,6 @@ public class Exam3 {
 		rt++;
 		list.remove(lt);
 		round++;
-		System.out.println(list.toString());
 			}
 		
 		return dap;
