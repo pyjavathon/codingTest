@@ -19,9 +19,7 @@ public class Exam6 {
 					while(arr[lt]==1) {
 						cnt--;
 						lt++;
-						
 					}
-					
 				}
 			}
 		}
