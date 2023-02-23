@@ -1,12 +1,39 @@
 package section5.day4;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
+class Person{
+	int id;
+	int priority;
+	public Person(int id, int priority) {
+		this.id = id;
+		this.priority = priority;
+	}
+}
 public class Exam8_1 {
-	public int solution(int patient, int na, ArrayList<Integer> emergency) {
+	public int solution(int patient, int na, int[]arr) {
 		int dap = 0;
+		Queue<Person> q = new LinkedList<>();
 		
+		for(int i = 0;i<patient;i++) {
+			q.offer(new Person(i,arr[i]));
+		}
+		while(!q.isEmpty()) {
+			Person tmp = q.poll();
+			for(Person x: q) {
+				if(x.priority>tmp.priority) {
+					q.offer(tmp);
+					tmp = null;
+					break;
+				}
+			}
+			if(tmp != null) {
+				dap++;
+				if(tmp.id==na) return dap;
+			}
+		}
 		return dap;
 	}
 
@@ -21,10 +48,10 @@ public class Exam8_1 {
 
 		int na = scan.nextInt();
 
-		ArrayList<Integer> emergency = new ArrayList<>();
+		int[] emergency = new int[patient];
 
 		for (int i = 0; i < patient; i++) {
-			emergency.add(scan.nextInt());
+			emergency[i] = scan.nextInt();
 		}
 
 		System.out.println(ex8.solution(patient, na, emergency));
