@@ -6,17 +6,18 @@ import java.util.Scanner;
 public class Exam2 {
 	public int[] solution(int n , int[]arr) {
 		
-		for(int i = 1; i< n; i++) {
-			if(arr[i-1]>arr[i]) {
-				int tmp = arr[i-1];
-				arr[i-1] = arr[i];
-				arr[i] = tmp;
-				System.out.println(i);
-				System.out.println("n="+n);
-				System.out.println(Arrays.toString(arr));
+		while(n!=0) {
+		
+			for(int i = 1; i< n; i++) {
+				if(arr[i-1]>arr[i]) {
+					int tmp = arr[i-1];
+					arr[i-1] = arr[i];
+					arr[i] = tmp;
+				
 			}
 		}
-		
+		n--;
+		}
 		return arr;
 	}
 
